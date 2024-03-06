@@ -1,1 +1,0 @@
-select uid, name, country from tso
