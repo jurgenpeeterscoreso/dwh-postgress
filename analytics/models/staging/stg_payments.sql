@@ -4,7 +4,7 @@ with payments as (
         id as payment_id,
         order_id,
         payment_method,
-        amount
+        amount/100 as amount
 
     from raw_payments
 
