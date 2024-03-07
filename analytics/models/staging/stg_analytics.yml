@@ -2,31 +2,39 @@ version: 2
 
 models:
   - name: stg_customers
+    description: Staged customer data from postgress db.
     columns:
       - name: customer_id
+        description: The primary key for customers.
         tests:
           - unique
           - not_null
 
   - name: stg_orders
+    description: Staged order data from postgress db.
     columns:
       - name: order_id
+        description: The primary key for orders.
         tests:
           - unique
           - not_null
       - name: customer_id
+        description: Foreign key to stg_customers.customer_id.
         tests:
           - relationships:
               to: ref('stg_customers')
               field: customer_id
 
   - name: stg_payments
+    description: Staged payment data from postgress db.
     columns:
       - name: payment_id
+        description: The primary key for payments.
         tests:
           - unique
           - not_null
       - name: payment_method
+        description: "{{ doc('payment_method') }}"
         tests:
           - accepted_values:
               values:
