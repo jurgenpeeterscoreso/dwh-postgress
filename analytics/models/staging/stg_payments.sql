@@ -6,7 +6,7 @@ with payments as (
         payment_method,
         amount/100 as amount
 
-    from raw_payments
+    from {{ source('analytics','raw_payments') }}
 
 )
 

@@ -6,7 +6,7 @@ with orders as (
         order_date,
         status
 
-    from raw_orders
+    from {{ source('analytics','raw_orders') }}
 
 )
 
